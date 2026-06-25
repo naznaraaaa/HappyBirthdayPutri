@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>🎨 Museum of You</title>
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    
+    <style>
+        /* ============================================
+           FONT FACES
+           ============================================ */
+        @font-face {
+            font-family: 'DailyPeace';
+            src: url('font/DailyPeace.otf') format('opentype');
+        }
+        @font-face {
+            font-family: 'CatSong';
+            src: url('font/CatSong.otf') format('opentype');
+        }
+        @font-face {
+            font-family: 'Inmyc';
+            src: url('font/Inmyc.ttf') format('truetype');
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'CatSong', sans-serif;
+            background: #D1E8FC;
+            color: #2c3e50;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .font-main { font-family: 'DailyPeace', cursive; }
+        .font-second { font-family: 'CatSong', sans-serif; }
+        .font-name { font-family: 'Inmyc', cursive; }
+    </style>
+    
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <!-- ========== PROGRESS BAR ========== -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar">
+            <span class="nav-icon" data-index="0">
+                <img src="img/nav1.jpeg" alt="face" />
+            </span>
+            <span class="nav-icon" data-index="1">
+                <img src="img/nav2.jpeg" alt="face" />
+            </span>
+            <span class="nav-icon" data-index="2">
+                <img src="img/nav3.jpeg" alt="face" />
+            </span>
+            <span class="nav-icon" data-index="3">
+                <img src="img/nav4.jpeg" alt="face" />
+            </span>
+            <span class="nav-icon" data-index="4">
+                <img src="img/nav5.jpeg" alt="face" />
+            </span>
+        </div>
+    </div>
+
+    <!-- ========== SECTION 1: WELCOME ========== -->
+    <section id="welcome" class="room">
+        <div class="ticket">
+            <h1 class="name-display" style="font-family: 'Inmyc', cursive; font-size: 4rem;">
+                PUTRI
+            </h1>
+            <p style="font-family: 'DailyPeace', cursive; font-size: 1.3rem; color: #7096D1;">
+                Museum ini dibuat untuk si cantik aku sedunia
+            </p>
+            <div class="ticket-stamp">
+                <p style="font-family: 'CatSong', sans-serif;">🎫 Tiket Masuk</p>
+                <button class="btn-start" id="startBtn" style="font-family: 'DailyPeace', cursive;">
+                    Klik ini Sayang.
+                </button>
+            </div>
+            <p style="font-size: 0.9rem; color: #7096D1; margin-top: 20px; font-family: 'CatSong', sans-serif;">
+                * Museum ini khusus sayangku. Semoga Kamu suka.
+            </p>
+        </div>
+    </section>
+
+    <!-- ========== SECTION 2: BEAUTY (LOVE METER) ========== -->
+    <section id="beauty" class="room">
+        <h2 class="section-title font-main">✨ Galeri Kecantikan</h2>
+        <p class="section-sub font-second">Koleksi wajah kamu yang kadang, jujur buat aku gemes.</p>
+        
+        <div class="swiper beauty-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <img src="img/2.jpeg" alt="Foto cantik" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <img src="img/6.jpeg" alt="Foto cantik" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <img src="img/1.jpeg" alt="Foto cantik" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <img src="img/3.jpeg" alt="Foto cantik" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <img src="img/4.jpeg" alt="Foto cantik" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <img src="img/5.jpeg" alt="Foto cantik" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <img src="img/9.jpeg" alt="Foto cantik" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <img src="img/7.jpeg" alt="Foto cantik" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <img src="img/8.jpeg" alt="Foto cantik" />
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <img src="img/11.jpeg" alt="Foto cantik" />
+                    </div>
+                </div>                
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+        
+        <!-- LOVE METER -->
+        <button class="btn-lovemeter" id="loveMeterBtn" style="font-family: 'DailyPeace', cursive;">
+            💖 Klik buat nilai foto ini
+        </button>
+        
+        <div id="loveMeterResult" class="lovemeter-result">
+            <div class="lovemeter-score" id="loveScore">❤️ 0/10</div>
+            <div class="lovemeter-stars" id="loveStars">☆☆☆☆☆☆☆☆☆☆</div>
+            <div class="lovemeter-message" id="loveMessage">Klik tombol di atas!</div>
+        </div>
+    </section>
+
+    <!-- ========== SECTION 3: FUNNY (Fungsi Kamera) ========== -->
+    <section id="funny" class="room">
+        <h2 class="section-title font-main">📹 Fungsi Kamera</h2>
+        <p class="section-sub font-second">Suka banget rekamin beliau dalam moment apapun, kalo kangen tinggal play video nya sambil call deh.</p>
+        
+        <div class="video-grid">
+            <div class="video-card" onclick="playVideo(this)">
+                <video src="video/gultik.mp4" muted playsinline preload="metadata"></video>
+                <div class="video-overlay font-second">▶ Klik</div>
+                <div class="video-label font-second">"Pertama kali beliau mencoba gultik, masih remed gultiknya"</div>
+            </div>
+            <div class="video-card" onclick="playVideo(this)">
+                <video src="video/museum.mp4" muted playsinline preload="metadata"></video>
+                <div class="video-overlay font-second">▶ Klik</div>
+                <div class="video-label font-second">"Happy banget kalo lihat betapa excited nya beliau"</div>
+            </div>
+            <div class="video-card" onclick="playVideo(this)">
+                <video src="video/night.mp4" muted playsinline preload="metadata"></video>
+                <div class="video-overlay font-second">▶ Klik</div>
+                <div class="video-label font-second">"Moment yang ga akan pernah aku lupa, first new year eve W U"</div>
+            </div>
+            <div class="video-card" onclick="playVideo(this)">
+                <video src="video/marah.mp4" muted playsinline preload="metadata"></video>
+                <div class="video-overlay font-second">▶ Klik</div>
+                <div class="video-label font-second">"Marah aja selucu ini, tapi tetep saya takutin"</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SECTION 4: MEMORY (Cikumpaw moment) ========== -->
+    <section id="memory" class="room">
+        <h2 class="section-title font-main">📦 Cikumpaw moment</h2>
+        <p class="section-sub font-second">Klik kotaknya, nanti kamu jawab yang bener, bommmbb our moment here</p>
+        
+        <div class="memory-grid">
+            <div class="memory-box" data-index="0">
+                <span class="box-icon">📦</span>
+                <span class="box-label font-second">Klik</span>
+            </div>
+            <div class="memory-box" data-index="1">
+                <span class="box-icon">📦</span>
+                <span class="box-label font-second">Klik</span>
+            </div>
+            <div class="memory-box" data-index="2">
+                <span class="box-icon">📦</span>
+                <span class="box-label font-second">Klik</span>
+            </div>
+        </div>
+        
+        <div id="memoryReveal" class="memory-reveal"></div>
+    </section>
+
+    <!-- ========== SECTION 5: WISH (Untuk Cantikku) ========== -->
+    <section id="wish" class="room">
+        <h2 class="section-title font-main" style="font-size: 3rem;">💝 Untuk Cantikku</h2>
+        
+        <div class="wish-container">
+            <div class="voice-section">
+                <div class="audio-player">
+                    <button id="playVoiceBtn" class="btn-voice font-main">
+                        🎧 Dengerin dulu ini ya
+                    </button>
+                    <div class="waveform" id="waveform">
+                        <span></span><span></span><span></span>
+                        <span></span><span></span><span></span>
+                        <span></span><span></span><span></span>
+                        <span></span><span></span><span></span>
+                    </div>
+                    <div class="audio-progress">
+                        <div class="progress-track" id="audioProgress">
+                            <div class="progress-fill" id="audioProgressFill"></div>
+                        </div>
+                        <span id="audioTime" class="font-second">0:00 / 3:50</span>
+                    </div>
+                    <audio id="voiceWish" src="voice/forU.m4a"></audio>
+                </div>
+            </div>
+            
+            <div class="letter-section">
+                <div class="letter">
+                    <h3 class="font-main" style="font-size: 2rem; color: #2c3e50;">WISH akuu nih bos</h3>
+                    <div class="letter-content font-second" id="letterContent">
+                        <!-- Isi dari JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <button class="btn-end font-main" id="endBtn">
+            🎉 Kalo sudah, pencet ini sayang
+        </button>
+    </section>
+
+    <!-- ========== SECTION KEJUTAN AKHIR ========== -->
+    <section id="finalSurprise" class="room" style="display:none; min-height:100vh; justify-content:center; align-items:center; background: #7096D1; padding:20px;">
+        <div class="surprise-container" style="text-align:center; max-width:500px; width:100%;">
+            <div id="surprisePhoto" style="width:100%; border-radius:30px; overflow:hidden; box-shadow:0 30px 80px rgba(0,0,0,0.3);">
+                <!-- Diisi JS -->
+            </div>
+            <!-- ========== BAGIAN NEMBAK ========== -->
+            <div class="propose-section" id="proposeSection">
+                <h2 style="font-family: 'DailyPeace', cursive; color: white; font-size: 2.2rem; margin-top: 20px;">
+                    💍 Mau jadi pacarku?
+                </h2>
+                <p style="font-family: 'CatSong', sans-serif; color: rgba(255,255,255,0.85); font-size: 1.1rem; margin: 10px 0 25px;">
+                    Dari semua koleksi di museum ini, kamu adalah pameran terbaik. 
+                    <br>Izinkan aku menjagamu selamanya? ❤️
+                </p>
+                
+                <div class="propose-buttons">
+                    <button class="btn-yes" id="proposeYes">
+                        💕 YA, AKU MAU!
+                    </button>
+                    <button class="btn-no" id="proposeNo">
+                        😅 Enggak deh
+                    </button>
+                </div>
+                
+                <div id="proposeResult" class="propose-result" style="display: none;">
+                    <!-- Diisi JS -->
+                </div>
+            </div>
+            <!-- ========== BACKGROUND MUSIC (Auto-play) ========== -->
+            <audio id="bgMusic" src="voice/lagu.m4a" loop preload="auto"></audio>
+            <p style="color:white; font-family:'DailyPeace', cursive; font-size:1.8rem; margin-top:25px; opacity:0.9;">
+                ✨ Selamat Ulang Tahun, Sayang ✨
+            </p>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <p style="font-family: 'DailyPeace', cursive;">Made with ❤️ by Nara keren</p>
+        <p style="font-size: 0.8rem; color: #7096D1; font-family: 'CatSong', sans-serif;">Museum of You © 2026</p>
+    </footer>
+
+    <!-- ========== SCRIPTS ========== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
