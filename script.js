@@ -55,19 +55,6 @@ function unduckBackground() {
     bgMusic.volume = 0.3; // VOLUME BALIK KE 30%
 }
 
-// Jalankan autoplay pas load
-setTimeout(tryAutoPlay, 1000);
-
-// Fungsi kecilin lagu (duck)
-function duckBackground() {
-    bgMusic.volume = 0.08; // Lagu dikecilin ke 8%
-}
-
-// Fungsi balikin volume lagu
-function unduckBackground() {
-    bgMusic.volume = 0.3; // Lagu balik ke 30%
-}
-
 // ============================================
 // LOVE METER DATA
 // ============================================
@@ -362,7 +349,7 @@ voiceBtn.addEventListener('click', () => {
         voiceBtn.textContent = '⏸️ Pause';
         voiceBtn.classList.add('playing');
         waveform.classList.add('active');
-        duckBackground(); // KECILIN LAGU!
+        duckBackground(); // MATIIN LAGU!
         if (navigator.vibrate) navigator.vibrate(10);
     } else {
         // Voice note di-pause
@@ -370,7 +357,7 @@ voiceBtn.addEventListener('click', () => {
         voiceBtn.textContent = '🎧 Dengerin dulu ini ya';
         voiceBtn.classList.remove('playing');
         waveform.classList.remove('active');
-        unduckBackground(); // BALIKIN VOLUME LAGU!
+        unduckBackground(); // HIDUPIN LAGU LAGI!
     }
 });
 
@@ -379,7 +366,7 @@ voiceAudio.addEventListener('ended', () => {
     voiceBtn.textContent = '🎧 Dengerin dulu ini ya';
     voiceBtn.classList.remove('playing');
     waveform.classList.remove('active');
-    unduckBackground(); // BALIKIN VOLUME LAGU!
+    unduckBackground(); // HIDUPIN LAGU LAGI!
 });
 
 // --- Saat user play/pause manual via browser ---
@@ -517,7 +504,7 @@ setTimeout(() => {
 }, 500);
 
 // ============================================
-// 11. KEYBOARD SHORTCUT (Space) + DUCKING
+// 12. KEYBOARD SHORTCUT (Space) + DUCKING
 // ============================================
 document.addEventListener('keydown', (e) => {
     if (e.key === ' ' || e.key === 'Space') {
@@ -527,19 +514,19 @@ document.addEventListener('keydown', (e) => {
             voiceBtn.textContent = '⏸️ Pause';
             voiceBtn.classList.add('playing');
             waveform.classList.add('active');
-            duckBackground(); // KECILIN LAGU!
+            duckBackground(); // MATIIN LAGU!
         } else {
             voiceAudio.pause();
             voiceBtn.textContent = '🎧 Dengerin dulu ini ya';
             voiceBtn.classList.remove('playing');
             waveform.classList.remove('active');
-            unduckBackground(); // BALIKIN VOLUME LAGU!
+            unduckBackground(); // HIDUPIN LAGU LAGI!
         }
     }
 });
 
 // ============================================
-// 12. PROPOSE (NEMBAK) + TOMBOL KABUR
+// 13. PROPOSE (NEMBAK) + TOMBOL KABUR
 // ============================================
 const proposeYes = document.getElementById('proposeYes');
 const proposeNo = document.getElementById('proposeNo');
@@ -567,7 +554,7 @@ proposeYes.addEventListener('click', () => {
             Makasih udah mau nemenin aku sampai sini. ❤️
         </p>
         <p style="margin-top: 15px; font-size: 2rem;">
-            💑
+            👩🏻‍❤️‍💋‍👩🏼
         </p>
     `;
     
@@ -691,6 +678,4 @@ window.addEventListener('resize', () => {
     }
 });
 
-console.log('🎨 Museum of You - Love Meter Edition siap!');
-
-console.log('🎨 Museum of You - Love Meter Edition siap!');
+console.log('🎨 Museum of You - FINAL EDITION siap!');
