@@ -108,6 +108,8 @@ body {
     justify-content: center;
     max-width: 600px;
     margin: 0 auto;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 .section-title {
@@ -193,7 +195,8 @@ body {
 .beauty-swiper {
     width: 100%;
     max-width: 400px;
-    height: 480px;
+    height: auto;
+    aspect-ratio: 4/5;
     border-radius: 25px;
     overflow: hidden;
     box-shadow: 0 15px 50px rgba(112, 150, 209, 0.2);
@@ -354,9 +357,9 @@ body {
 .video-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    gap: 16px;
     width: 100%;
-    max-width: 400px;
+    max-width: 420px;
 }
 
 .video-card {
@@ -365,6 +368,7 @@ body {
     overflow: hidden;
     background: #C8D9E6;
     aspect-ratio: 9/16;
+    min-height: 180px;
     cursor: pointer;
     box-shadow: 0 8px 25px rgba(0,0,0,0.08);
     transition: all 0.3s;
@@ -721,76 +725,6 @@ body {
     100% { opacity: 1; transform: scale(1) translateY(0); }
 }
 
-/* Animasi pulse buat tombol nembak */
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); box-shadow: 0 10px 50px rgba(238, 90, 36, 0.6); }
-}
-
-/* Animasi lovePop (udah ada dari sebelumnya) */
-@keyframes lovePop {
-    0% { transform: scale(0.3) rotate(-10deg); opacity: 0; }
-    60% { transform: scale(1.2) rotate(5deg); opacity: 1; }
-    100% { transform: scale(1) rotate(0deg); }
-}
-
-/* ============================================
-   FOOTER
-   ============================================ */
-footer {
-    text-align: center;
-    padding: 30px 20px;
-    background: #D1E8FC;
-    border-top: 2px solid #A9C7E8;
-    color: #7096D1;
-}
-
-footer p:first-child {
-    font-family: 'DailyPeace', cursive;
-    font-size: 1.1rem;
-    color: #2c3e50;
-}
-
-/* ============================================
-   RESPONSIVE
-   ============================================ */
-@media (min-width: 600px) {
-    .room {
-        padding: 100px 30px 80px;
-        max-width: 700px;
-    }
-    
-    .section-title {
-        font-size: 2.5rem;
-    }
-    
-    .name-display {
-        font-size: 4rem;
-    }
-    
-    .beauty-swiper {
-        height: 550px;
-        max-width: 450px;
-    }
-    
-    .video-grid {
-        max-width: 450px;
-    }
-    
-    .memory-grid {
-        max-width: 400px;
-    }
-    
-    .wish-container {
-        max-width: 500px;
-    }
-    
-    .nav-icon {
-        width: 48px;
-        height: 48px;
-    }
-}
-
 /* ============================================
    PROPOSE SECTION (NEMBAK)
    ============================================ */
@@ -923,24 +857,339 @@ footer p:first-child {
     100% { transform: translateY(-200px) scale(1.5) rotate(30deg); opacity: 0; }
 }
 
-@media (max-width: 480px) {
-    .video-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px; /* DARI 10px JADI 16px */
-    }
+/* ============================================
+   FOOTER
+   ============================================ */
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    background: #D1E8FC;
+    border-top: 2px solid #A9C7E8;
+    color: #7096D1;
 }
+
+footer p:first-child {
+    font-family: 'DailyPeace', cursive;
+    font-size: 1.1rem;
+    color: #2c3e50;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (min-width: 600px) {
+    .room {
+        padding: 100px 30px 80px;
+        max-width: 700px;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+    }
+    
+    .name-display {
+        font-size: 4rem;
+    }
     
     .beauty-swiper {
-        height: 600px;
+        height: auto;
+        aspect-ratio: 4/5;
+        max-width: 450px;
+    }
+    
+    .video-grid {
+        max-width: 450px;
+        gap: 18px;
+    }
+    
+    .memory-grid {
+        max-width: 400px;
+    }
+    
+    .wish-container {
+        max-width: 500px;
+    }
+    
+    .nav-icon {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+@media (max-width: 480px) {
+    .room {
+        padding: 70px 12px 50px;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    .section-sub {
+        font-size: 0.85rem;
+        padding: 0 5px;
+    }
+    
+    .name-display {
+        font-size: 2.8rem;
+    }
+    
+    .beauty-swiper {
+        height: auto;
+        aspect-ratio: 4/5;
+        border-radius: 18px;
+        max-width: 100%;
+    }
+    
+    .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+        max-width: 100%;
+    }
+    
+    .video-card {
+        min-height: 150px;
+        border-radius: 14px;
+    }
+    
+    .video-label {
+        font-size: 0.65rem;
+        padding: 20px 10px 10px;
+    }
+    
+    .video-overlay {
+        font-size: 1.3rem;
+    }
+    
+    .memory-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        max-width: 100%;
+    }
+    
+    .memory-box {
+        padding: 18px 8px;
+        border-radius: 14px;
+    }
+    
+    .memory-box .box-icon {
+        font-size: 1.8rem;
+    }
+    
+    .memory-box .box-label {
+        font-size: 0.7rem;
+    }
+    
+    .btn-lovemeter {
+        padding: 14px 25px;
+        font-size: 1rem;
+    }
+    
+    .btn-voice {
+        padding: 14px 25px;
+        font-size: 1rem;
+    }
+    
+    .btn-end {
+        padding: 14px 25px;
+        font-size: 1rem;
+    }
+    
+    .btn-start {
+        padding: 14px 25px;
+        font-size: 1.1rem;
+    }
+    
+    .lovemeter-result {
+        padding: 15px 18px;
+    }
+    
+    .lovemeter-score {
+        font-size: 1.8rem;
+    }
+    
+    .lovemeter-stars {
+        font-size: 1.4rem;
+    }
+    
+    .lovemeter-message {
+        font-size: 0.9rem;
+    }
+    
+    .voice-section {
+        padding: 20px 15px;
+    }
+    
+    .letter-section {
+        padding: 20px 15px;
+    }
+    
+    .letter h3 {
+        font-size: 1.4rem;
+    }
+    
+    .letter-content {
+        font-size: 0.9rem;
+        max-height: 180px;
+    }
+    
+    .wish-container {
+        max-width: 100%;
+    }
+    
+    .slide-caption {
+        font-size: 0.85rem;
+        padding: 10px 15px;
+    }
+    
+    .nav-icon {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .propose-section h2 {
+        font-size: 1.8rem !important;
+    }
+    
+    .propose-section p {
+        font-size: 0.95rem !important;
+    }
+    
+    .btn-yes {
+        padding: 14px 30px;
+        font-size: 1.1rem;
+        min-width: 130px;
+    }
+    
+    .btn-no {
+        padding: 12px 20px;
+        font-size: 0.95rem;
+        min-width: 110px;
+    }
+    
+    .propose-result {
+        padding: 20px;
+    }
+    
+    .propose-result h3 {
+        font-size: 1.6rem;
+    }
+    
+    .propose-result p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .room {
+        padding: 60px 10px 40px;
+    }
+    
+    .section-title {
+        font-size: 1.3rem;
+    }
+    
+    .name-display {
+        font-size: 2.2rem;
+    }
+    
+    .video-grid {
+        gap: 10px;
+    }
+    
+    .video-card {
+        min-height: 120px;
+        border-radius: 12px;
+    }
+    
+    .video-label {
+        font-size: 0.55rem;
+        padding: 15px 8px 8px;
+    }
+    
+    .video-overlay {
+        font-size: 1rem;
+    }
+    
+    .memory-grid {
+        gap: 8px;
+    }
+    
+    .memory-box {
+        padding: 14px 5px;
+        border-radius: 12px;
+    }
+    
+    .memory-box .box-icon {
+        font-size: 1.4rem;
+    }
+    
+    .memory-box .box-label {
+        font-size: 0.6rem;
+    }
+    
+    .beauty-swiper {
+        border-radius: 14px;
+    }
+    
+    .btn-lovemeter {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .btn-voice {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .btn-end {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .btn-start {
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+    
+    .nav-icon {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .propose-section h2 {
+        font-size: 1.4rem !important;
+    }
+    
+    .btn-yes {
+        padding: 12px 20px;
+        font-size: 0.95rem;
+        min-width: 100px;
+    }
+    
+    .btn-no {
+        padding: 10px 16px;
+        font-size: 0.8rem;
+        min-width: 90px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .room {
+        max-width: 900px;
+        padding: 120px 40px 100px;
+    }
+    
+    .beauty-swiper {
+        height: auto;
+        aspect-ratio: 4/5;
         max-width: 500px;
     }
     
     .video-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 18px; /* DARI 12px JADI 18px (LEBIH LONGGAR) */
-        width: 100%;
-        max-width: 420px; /* DARI 400px JADI 420px */
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 700px;
+        gap: 20px;
     }
     
     .video-card:hover {
@@ -958,3 +1207,4 @@ footer p:first-child {
     .memory-box:hover {
         transform: translateY(-5px) scale(1.02);
     }
+}
