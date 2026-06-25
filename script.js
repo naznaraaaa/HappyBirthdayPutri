@@ -44,14 +44,34 @@ function tryAutoPlay() {
 // Jalankan autoplay pas load
 setTimeout(tryAutoPlay, 1000);
 
-// Fungsi kecilin lagu (duck)
-function duckBackground() {
-    bgMusic.volume = 0.08; // Lagu dikecilin ke 8%
+// ============================================
+// BACKGROUND MUSIC + DUCKING AUDIO (MATI TOTAL)
+// ============================================
+const bgMusic = document.getElementById('bgMusic');
+
+// Volume awal 30% (pelan sebagai backsound)
+bgMusic.volume = 0.3;
+
+function tryAutoPlay() {
+    bgMusic.play().catch(() => {
+        document.addEventListener('click', function playOnClick() {
+            bgMusic.play();
+            document.removeEventListener('click', playOnClick);
+        }, { once: true });
+    });
 }
 
-// Fungsi balikin volume lagu
-function unduckBackground() {
-    bgMusic.volume = 0.3; // Lagu balik ke 30%
+setTimeout(tryAutoPlay, 1000);
+
+// --- FUNGSI BARU: MATIIN LAGU TOTAL ---
+function muteBackground() {
+    bgMusic.pause(); // LAGU BERHENTI TOTAL
+}
+
+// --- FUNGSI BARU: HIDUPIN LAGU LAGI ---
+function unmuteBackground() {
+    bgMusic.play().catch(() => {}); // LANJUTIN PUTAR
+    bgMusic.volume = 0.3;
 }
 
 // ============================================
@@ -340,7 +360,9 @@ const audioTime = document.getElementById('audioTime');
 
 document.getElementById('letterContent').innerHTML = wishLetter;
 
-// --- VOICE BUTTON (dengan ducking) ---
+// ============================================
+// VOICE BUTTON (MATIIN LAGU PAS VOICE DIPUTAR)
+// ============================================
 voiceBtn.addEventListener('click', () => {
     if (voiceAudio.paused) {
         // Voice note diputar
@@ -348,7 +370,7 @@ voiceBtn.addEventListener('click', () => {
         voiceBtn.textContent = '⏸️ Pause';
         voiceBtn.classList.add('playing');
         waveform.classList.add('active');
-        duckBackground(); // KECILIN LAGU!
+        muteBackground(); // LAGU MATI TOTAL!
         if (navigator.vibrate) navigator.vibrate(10);
     } else {
         // Voice note di-pause
@@ -356,7 +378,26 @@ voiceBtn.addEventListener('click', () => {
         voiceBtn.textContent = '🎧 Dengerin dulu ini ya';
         voiceBtn.classList.remove('playing');
         waveform.classList.remove('active');
-        unduckBackground(); // BALIKIN VOLUME LAGU!
+        unmuteBackground(); // LAGU HIDUP LAGI!
+    }
+});
+
+// --- Saat voice note selesai ---
+voiceAudio.addEventListener('ended', () => {
+    voiceBtn.textContent = '🎧 Dengerin dulu ini ya';
+    voiceBtn.classList.remove('playing');
+    waveform.classList.remove('active');
+    unmuteBackground(); // LAGU HIDUP LAGI!
+});
+
+// --- Saat user play/pause manual ---
+voiceAudio.addEventListener('play', () => {
+    muteBackground();
+});
+
+voiceAudio.addEventListener('pause', () => {
+    if (!voiceAudio.ended) {
+        unmuteBackground();
     }
 });
 
@@ -503,7 +544,7 @@ setTimeout(() => {
 }, 500);
 
 // ============================================
-// 11. KEYBOARD SHORTCUT (Space) + DUCKING
+// KEYBOARD SHORTCUT (Space) - MATIIN LAGU
 // ============================================
 document.addEventListener('keydown', (e) => {
     if (e.key === ' ' || e.key === 'Space') {
@@ -513,13 +554,13 @@ document.addEventListener('keydown', (e) => {
             voiceBtn.textContent = '⏸️ Pause';
             voiceBtn.classList.add('playing');
             waveform.classList.add('active');
-            duckBackground(); // KECILIN LAGU!
+            muteBackground(); // LAGU MATI!
         } else {
             voiceAudio.pause();
             voiceBtn.textContent = '🎧 Dengerin dulu ini ya';
             voiceBtn.classList.remove('playing');
             waveform.classList.remove('active');
-            unduckBackground(); // BALIKIN VOLUME LAGU!
+            unmuteBackground(); // LAGU HIDUP!
         }
     }
 });
